@@ -20,6 +20,10 @@ const app = express();
 app.use(express.json());
 app.use(express.static(rootDir));
 
+app.get("/", (_request, response) => {
+  response.sendFile(path.join(rootDir, "index.html"));
+});
+
 app.get("/api/settings", async (_request, response, next) => {
   try {
     response.json(await getSettings());
@@ -68,6 +72,15 @@ app.delete("/api/records", async (_request, response, next) => {
   } catch (error) {
     next(error);
   }
+});
+
+app.get(/.*/, (request, response, next) => {
+  if (request.path.startsWith("/api/")) {
+    next();
+    return;
+  }
+
+  response.sendFile(path.join(rootDir, "index.html"));
 });
 
 app.use((error, _request, response, _next) => {
