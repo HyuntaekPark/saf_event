@@ -9,15 +9,16 @@ import {
   getRecords,
   getSettings,
   updateSettings
-} from "./lib/db.js";
+} from "../lib/db.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const rootDir = path.resolve(__dirname, "..");
 const PORT = Number(process.env.PORT || 5173);
 const app = express();
 
 app.use(express.json());
-app.use(express.static(__dirname));
+app.use(express.static(rootDir));
 
 app.get("/api/settings", async (_request, response, next) => {
   try {

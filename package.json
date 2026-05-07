@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js",
-    "check": "node --check server.js && node --check api/settings.js && node --check api/records/index.js && node --check \"api/records/[id].js\" && node --check lib/db.js"
+    "start": "node scripts/dev-server.js",
+    "dev": "node scripts/dev-server.js",
+    "check": "node --check scripts/dev-server.js && node --check api/settings.js && node --check api/records/index.js && node --check \"api/records/[id].js\" && node --check lib/db.js"
   },
   "dependencies": {
     "dotenv": "^17.2.3",
