@@ -15,6 +15,8 @@ npm start
 
 `.env.example`을 참고해서 로컬에는 `.env`를 만들고, Vercel 프로젝트에는 `DATABASE_URL` 환경 변수를 등록하세요.
 
+Vercel에서 Neon 연결 문자열을 넣을 때는 `channel_binding=require`를 빼고 `sslmode=require`까지만 사용하는 편이 안전합니다.
+
 실제 DB 연결 문자열은 GitHub에 올리지 마세요.
 
 ## Vercel 배포
